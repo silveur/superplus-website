@@ -15,12 +15,33 @@ a:visited {text-decoration:none;color:white;background-color:black;}
 a:hover {color:black;background-color:#ffffff;}
 a:active {text-decoration:none;color:white;}
 
-#slide
+#arrows
 {
 	text-align: center;
 }
 
-#arrows
+#slides 
 {
+	width: 754px;
+	height: 504px;
 	text-align: center;
+}
+
+#slides img 
+{
+	position:absolute;
+	-webkit-transition: opacity 1s ease-in-out;
+	-moz-transition: opacity 1s ease-in-out;
+	-o-transition: opacity 1s ease-in-out;
+	transition: opacity 1s ease-in-out;
+	opacity:0;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
+}
+
+#slides img.opaque 
+{
+	opacity:1;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=1);
 }

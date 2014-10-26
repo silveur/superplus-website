@@ -10,19 +10,26 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<body>
 
-		
-		<div id="slide"></div>
-
-		<div id="arrows">
-			<a href='#' onclick='loadPreviousSlide();'><</a>
-			<a href='#' onclick='loadNextSlide();'>></a>
+		<div id="slides" class="shadow">
 		</div>
 
+		<div id="arrows">
+			<span class="selected" onclick="loadPreviousSlide()"> <a href='#' > < </a></span>
+			<span class="selected" onclick="loadNextSlide()"> <a href='#' > > </a></span>
+		</div>
+		
 		<script>
 		$( document ).ready(function() 
 		{
 			getWindowBoundaries();
 			showSlides();
+			
+			$("#arrows").on('click', 'span', function() {
+		    $("#slides img").removeClass("opaque");
+		    $("#slides img").eq(slideIndex).addClass("opaque");
+		    $("#arrows span").removeClass("selected");
+		    $(this).addClass("selected");
+		  });
 		});
 		</script>
 	</body>
