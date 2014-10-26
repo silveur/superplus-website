@@ -1,0 +1,26 @@
+
+@font-face 
+{
+	font-family: 'Raspoutine Medium';
+	src: url(./font/PrestigeEliteStd.otf);
+}
+
+body
+{
+	background-color:black;
+}
+
+a:link {text-decoration:none;color:white;font-size: 11px;font-weight:normal;}
+a:visited {text-decoration:none;color:white;background-color:black;}
+a:hover {color:black;background-color:#ffffff;}
+a:active {text-decoration:none;color:white;}
+
+#slide
+{
+	text-align: center;
+}
+
+#arrows
+{
+	text-align: center;
+}
