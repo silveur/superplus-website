@@ -11,6 +11,34 @@
 	<body>
 
 		<div id="slides" class="shadow">
+		<img class='opaque' src='images/1.jpg' height='504' width='754'>
+		<?php
+			$dir = "images";
+			if ($handle = opendir($dir)) 
+			{	
+				$array = array();
+	   			while (false !== ($entry = readdir($handle))) 
+	   			{
+	       			if ($entry != "." && $entry != ".." && $entry != ".DS_Store") 
+			        {
+			        	$fileUrl = $dir . "/" . $entry ;
+			        	$fileUrl = str_replace(' ', '%20', $fileUrl);
+			        	$extension = pathinfo($fileUrl);
+			        	if ($extension['extension'] == "jpg" || $extension['extension'] == "gif")
+			        	{
+			        		if ($entry != "1.jpg")
+			        			array_push($array, $entry);
+			       		}
+			        }
+	    		}
+	    		sort($array, SORT_NATURAL | SORT_FLAG_CASE);
+	    		foreach ($array as $key => $val)
+	    		{
+   					echo "<img class='bottom' src=images/" . $val . " height='504' width='754'>";
+				}
+	    	}
+	    	closedir($handle);
+		?>
 		</div>
 
 		<div id="arrows">
@@ -22,7 +50,7 @@
 		$( document ).ready(function() 
 		{
 			getWindowBoundaries();
-			showSlides();
+			//showSlides();
 			
 			$("#arrows").on('click', 'span', function() {
 		    $("#slides img").removeClass("opaque");
